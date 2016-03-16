@@ -18,8 +18,6 @@ def test_likelihood():
                             - bivariate_poisson_like([n1,n2],l_1,l_2,l_3)) < 1e-5):
                             print n1,n2,l_1,l_2,l_3
                             print bivariate_poisson_like_classic([n1,n2],l_1,l_2,l_3),bivariate_poisson_like([n1,n2],l_1,l_2,l_3)
-                        else:
-                            print 'good'
 
 if __name__ == '__main__':
     test_likelihood()
