@@ -23,12 +23,12 @@ def bivariate_poisson_like(int a, int b, float l_1, float l_2, float l_3):
     #p_km_km = (np.exp(-t_1-t_2-t_0)/factorial(y-x))*t_2**(y-x)
     p_km_km = np.exp(-t_1-t_2-t_0)
     if y == 0:
-        return p_km_km
+        return np.log(p_km_km)
     for k in range(1,y-x+1):
         p_km_km *= t_2/k
 
     if x == 0:
-        return p_km_km
+        return np.log(p_km_km)
 
     p_km_k = p_km_km * t_2 / (y-x+1)
 
@@ -40,4 +40,4 @@ def bivariate_poisson_like(int a, int b, float l_1, float l_2, float l_3):
         p_km_km = p_k_k
         p_km_k = p_k_kp
 
-    return np.log(max(1e-99,t_1/x*p_km_k+t_0/x*p_km_km))
+    return np.log(t_1/x*p_km_k+t_0/x*p_km_km)
